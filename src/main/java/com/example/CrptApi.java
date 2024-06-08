@@ -13,16 +13,14 @@ public class CrptApi {
     private final long timeUnitMillis;
     private int requestCount = 0;
     private long startTime;
-    private final String token;
 
-    public CrptApi(TimeUnit timeUnit, int requestLimit, String token) {
+    public CrptApi(TimeUnit timeUnit, int requestLimit) {
         if (requestLimit <= 0) {
             throw new IllegalArgumentException("Request limit must be positive");
         }
         this.requestLimit = requestLimit;
         this.timeUnitMillis = timeUnit.toMillis(1);
         this.startTime = System.currentTimeMillis();
-        this.token = token;
     }
 
     private synchronized void waitIfLimitExceeded() throws InterruptedException {
@@ -75,8 +73,7 @@ public class CrptApi {
     public static void main(String[] args) {
         try {
             // Пример использования
-            String token = "your_token_here"; // Замените "your_token_here" на действительный токен
-            CrptApi api = new CrptApi(TimeUnit.MINUTES, 10, token);
+            CrptApi api = new CrptApi(TimeUnit.MINUTES, 10);
 
             // Пример документа и подписи
             Object document = new Object() {

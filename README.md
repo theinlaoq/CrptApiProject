@@ -1,4 +1,4 @@
-# Класс CrptApi
+## Класс CrptApi
 CrptApi(TimeUnit timeUnit, int requestLimit): Конструктор класса принимает TimeUnit и requestLimit.
 ## метод waitIfLimitExceeded()
 Метод проверяет, не превышен ли лимит запросов, и блокируется, если лимит превышен.
